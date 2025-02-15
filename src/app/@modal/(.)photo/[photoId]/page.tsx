@@ -1,5 +1,6 @@
 import { PhotoData } from "@/app/photo/[photoId]/page";
 import PhotoDisplay from "@/app/photo/[photoId]/PhotoDisplay";
+import { Modal } from "@/components/Modal";
 
 type Props = {
   params: Promise<{
@@ -8,7 +9,7 @@ type Props = {
 };
 
 export default async function Photo({ params }: Props) {
-  const { photoId } = await params
+  const { photoId } = await params;
   const response = await fetch(`http://localhost:3500/images/${photoId}`, {
     cache: "no-store",
   });
@@ -20,8 +21,8 @@ export default async function Photo({ params }: Props) {
   }
 
   return (
-    <div className="mt-2 grid place-content-center">
+    <Modal>
       <PhotoDisplay photoData={photoData} />
-    </div>
+    </Modal>
   );
 }
