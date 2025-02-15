@@ -1,10 +1,5 @@
-import PhotoDisplay from "./PhotoDisplay";
-
-export type PhotoData = {
-  id: number;
-  title: string;
-  path: string;
-};
+import { PhotoData } from "@/app/photo/[photoId]/page";
+import PhotoDisplay from "@/app/photo/[photoId]/PhotoDisplay";
 
 type Props = {
   params: Promise<{
